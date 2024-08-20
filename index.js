@@ -1,3 +1,5 @@
+require("dotenv").config();
+const usersRouter = require("./routes/userRouter");
 const express = require("express");
 const mongoose = require("mongoose");
 
@@ -12,7 +14,6 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Server started on port ${port}`));
 
 
-require("dotenv").config();
 
 const DBString = process.env.DATABASE_URL;
 
@@ -27,6 +28,5 @@ database.once("connected", () => {
 	console.log("Database Connected");
 });
 
-const usersRouter = require("./routes/user");
 
 app.use("/users", usersRouter);
